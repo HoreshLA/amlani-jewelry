@@ -12,11 +12,18 @@
   };
 
   /* Static [data-wa] elements → WhatsApp links */
-  document.querySelectorAll("[data-wa]").forEach(function (el) {
-    el.setAttribute("href", window.waLink(el.getAttribute("data-wa")));
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener");
-  });
+  function wireWa() {
+    document.querySelectorAll("[data-wa]").forEach(function (el) {
+      el.setAttribute("href", window.waLink(el.getAttribute("data-wa")));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
+  }
+  wireWa();
+  fetch("site.json", { cache: "no-store" })
+    .then(function (r) { return r.json(); })
+    .then(function (s) { if (s && s.whatsapp) { NUMBER = s.whatsapp; wireWa(); } })
+    .catch(function () {});
 
   /* Header background on scroll */
   var header = document.getElementById("header");

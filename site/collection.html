@@ -80,11 +80,14 @@
     </svg>
   </a>
 
-  <script src="data.js?v=1"></script>
-  <script src="common.js?v=1"></script>
+  <script src="common.js?v=2"></script>
   <script>
     (function () {
-      var products = window.AMLANI_PRODUCTS || [];
+      fetch('products.json', { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(render)
+        .catch(function () { render([]); });
+      function render(products) {
       var head = document.getElementById("pageHead");
       var view = document.getElementById("view");
 
@@ -164,6 +167,7 @@
       }).join("");
 
       if (window.observeReveals) window.observeReveals(view);
+      }
     })();
   </script>
 </body>

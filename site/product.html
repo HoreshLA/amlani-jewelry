@@ -81,11 +81,14 @@
     </svg>
   </a>
 
-  <script src="data.js?v=1"></script>
-  <script src="common.js?v=1"></script>
+  <script src="common.js?v=2"></script>
   <script>
     (function () {
-      var products = window.AMLANI_PRODUCTS || [];
+      fetch('products.json', { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(render)
+        .catch(function () { render([]); });
+      function render(products) {
       var id = new URLSearchParams(location.search).get("id");
       var p = products.filter(function (x) { return x.id === id; })[0];
       var root = document.getElementById("product");
@@ -104,6 +107,7 @@
 
       /* --- Media (main + thumbs) --- */
       function mediaHTML(m, isMain) {
+        if (!m) return "";
         if (m.type === "video") {
           return '<video src="' + m.src + '" ' +
             (isMain ? 'controls playsinline muted loop autoplay' : 'muted playsinline preload="metadata"') +
@@ -112,7 +116,7 @@
         return '<img src="' + m.src + '" alt="' + (m.alt || p.name) + '">';
       }
 
-      var thumbs = p.gallery.length > 1
+      var thumbs = (p.gallery || []).length > 1
         ? '<div class="pg-thumbs">' + p.gallery.map(function (m, i) {
             return '<button class="pg-thumb' + (i === 0 ? ' active' : '') + '" data-i="' + i + '" aria-label="תצוגה ' + (i + 1) + '">' +
               (m.type === "video"
@@ -133,7 +137,7 @@
           '<nav class="crumbs reveal" aria-label="נתיב"><a href="index.html">בית</a> <span>/</span> <a href="collection.html">הקולקציה</a> <span>/</span> ' + p.name + '</nav>' +
           '<div class="pg-layout">' +
             '<div class="pg-gallery reveal">' +
-              '<div class="pg-main" id="pgMain">' + mediaHTML(p.gallery[0], true) + '</div>' +
+              '<div class="pg-main" id="pgMain">' + mediaHTML(p.gallery && p.gallery[0], true) + '</div>' +
               thumbs +
             '</div>' +
             '<div class="pg-info reveal">' +
@@ -177,6 +181,7 @@
       }
 
       window.scrollTo(0, 0);
+      }
     })();
   </script>
 </body>
