@@ -11,12 +11,14 @@
 ```
 site/
 ├── index.html          ← עמוד הבית (hero, ערכים, הצצה לקולקציה, וידאו, סיפור, חומרים, הזמנה אישית, יצירת קשר)
-├── collection.html     ← קולקציה: מסך קטגוריות (?cat=rings/necklaces/bracelets) → מוצרים. נבנה מ-data.js
-├── product.html        ← תבנית עמוד מוצר בודד (?id=…) — נבנית מ-data.js
+├── collection.html     ← קולקציה: מסך קטגוריות (?cat=rings/necklaces/bracelets) → מוצרים. נבנה מ-products.json
+├── product.html        ← תבנית עמוד מוצר בודד (?id=…) — נבנית מ-products.json
 ├── sizes.html          ← טבלת מידות טבעות + מדריך מדידה
 ├── accessibility.html  ← הצהרת נגישות (ת"י 5568 / WCAG 2.0 AA)
 ├── privacy.html        ← מדיניות פרטיות
-├── data.js             ← ★ מקור האמת: כל המוצרים + מספר הוואטסאפ
+├── content/            ← ★ מקור האמת: products/*.json (מוצר לכל קובץ), home.json, site.json (וואטסאפ)
+├── products.json       ← נוצר ע"י `node build.js` (לא לערוך ידנית)
+├── admin/              ← Sveltia CMS
 ├── common.js           ← לוגיקה משותפת (header, תפריט, אנימציות, קישורי וואטסאפ)
 ├── styles.css          ← כל העיצוב
 └── assets/
@@ -49,33 +51,13 @@ python -m http.server 8777
 ## עדכונים נפוצים
 
 ### שינוי מספר הוואטסאפ
-בקובץ `data.js`, בשורה הראשונה:
-```js
-window.WHATSAPP_NUMBER = "972502023525";
-```
+בקובץ `content/site.json` (או ב-CMS, תחת הגדרות), בשדה `whatsapp`.
 כל הכפתורים והקישורים באתר מתעדכנים אוטומטית.
 
-### הוספת / עריכת מוצר  ← הכל דרך `data.js`
-כל מוצר הוא אובייקט אחד במערך `AMLANI_PRODUCTS`. מעתיקים בלוק קיים ומעדכנים:
-```js
-{
-  id: "ring-new",                       // מזהה ייחודי (משמש בכתובת product.html?id=ring-new)
-  name: "שם התכשיט",
-  meta: "כסף 925 · אבן",                 // שורת החומר
-  cats: "rings",                        // קטגוריה: rings / necklaces / bracelets (אפשר כמה, מופרד ברווח)
-  cover: "assets/products/xxx.jpg",     // תמונת הכרטיס והתמונה הראשית
-  gallery: [                            // גלריה בעמוד המוצר (תמונות ו/או וידאו)
-    { type: "image", src: "assets/products/xxx.jpg", alt: "תיאור" },
-    { type: "video", src: "assets/videos/xxx.mp4", alt: "תיאור" }
-  ],
-  short: "תיאור קצר לכרטיס בקולקציה.",
-  long: ["פסקה ראשונה בעמוד המוצר.", "פסקה שנייה."],
-  details: [{ label: "מתכת", value: "כסף 925" }],  // טבלת מפרט
-  wa: "שלום, התעניינתי ב... אשמח לפרטים ומחיר"      // הודעת וואטסאפ מוכנה
-}
-```
+### הוספת / עריכת מוצר  ← דרך ה-CMS
+מוסיפים/עורכים מוצרים ב-CMS (`/admin/`). לחלופין: עורכים `content/products/*.json` ומריצים `node build.js` (מייצר את `products.json`; ב-Netlify זה רץ אוטומטית).
+שדות מוצר: id, name, meta, cats (מערך: rings / necklaces / bracelets), cover, gallery, short, long, details, wa.
 המוצר יופיע אוטומטית בקולקציה, בסינון, ובעמוד מוצר משלו — בלי לגעת ב-HTML.
-> 3 המוצרים הראשונים ב-`data.js` הם אלה שמופיעים ב"הצצה לקולקציה" בעמוד הבית.
 
 ### החלפת תמונות / סרטונים בעמוד הבית
 - Hero: `assets/products/ring-moonstone-aqua.jpg` (ב-`index.html`, בתוך `.hero-media`).
@@ -88,7 +70,7 @@ window.WHATSAPP_NUMBER = "972502023525";
 
 ## שלב 2 — תשלומים (עתידי)
 המבנה כבר "חנותי": לכל מוצר עמוד, כותרת, מפרט ותיאור. להוספת מכירה אונליין:
-- **קל:** להוסיף שדה `price` ב-`data.js` ולהחליף את כפתור הוואטסאפ בעמוד המוצר
+- **קל:** להוסיף שדה `price` למוצר ב-CMS ולהחליף את כפתור הוואטסאפ בעמוד המוצר
   בכפתור תשלום (PayPal / ביט / קישור סליקה).
 - **חנות מלאה:** להעביר לפלטפורמה עם עגלה (Shopify / WooCommerce) תוך שמירה על אותה שפה עיצובית.
 

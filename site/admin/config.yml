@@ -13,6 +13,8 @@ collections:
     folder: "site/content/products"
     create: true
     slug: "{{slug}}"
+    extension: "json"
+    format: "json"
     identifier_field: name
     fields:
       - { name: name, label: "שם", widget: string }
