@@ -20,9 +20,18 @@
     });
   }
   wireWa();
-  fetch("site.json", { cache: "no-store" })
+  fetch("content/site.json", { cache: "no-store" })
     .then(function (r) { return r.json(); })
-    .then(function (s) { if (s && s.whatsapp) { NUMBER = s.whatsapp; wireWa(); } })
+    .then(function (s) {
+      if (s && s.whatsapp) {
+        NUMBER = s.whatsapp;
+        wireWa();
+        /* re-point already-built wa.me links (dynamic buy/CTA links) */
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+          a.setAttribute("href", a.getAttribute("href").replace(/wa\.me\/\d+/,"wa.me/" + NUMBER));
+        });
+      }
+    })
     .catch(function () {});
 
   /* Header background on scroll */
