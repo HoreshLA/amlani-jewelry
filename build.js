@@ -1,4 +1,4 @@
-const fs = require('fs'), path = require('path');
+const fs = require('fs'), path = require('path'), os = require('os'), assert = require('assert');
 
 function buildProducts(dir) {
   return fs.readdirSync(dir).filter(f => f.endsWith('.json')).sort()
@@ -31,19 +31,22 @@ function main() {
 
 function selfTest() {
   // aggregation: id from filename, cats stays array, missing cats ok
-  const tmp = fs.mkdtempSync('bt-');
-  fs.writeFileSync(path.join(tmp, 'ring-x.json'), JSON.stringify({ name: 'X', cats: ['rings'] }));
-  fs.writeFileSync(path.join(tmp, 'a-y.json'), JSON.stringify({ name: 'Y' }));
-  const ps = buildProducts(tmp);
-  console.assert(ps[0].id === 'a-y' && ps[1].id === 'ring-x', 'sorted + id from filename');
-  console.assert(Array.isArray(ps[1].cats) && ps[0].cats === undefined, 'cats array / missing ok');
-  fs.rmSync(tmp, { recursive: true });
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'bt-'));
+  try {
+    fs.writeFileSync(path.join(tmp, 'ring-x.json'), JSON.stringify({ name: 'X', cats: ['rings'] }));
+    fs.writeFileSync(path.join(tmp, 'a-y.json'), JSON.stringify({ name: 'Y' }));
+    const ps = buildProducts(tmp);
+    assert(ps[0].id === 'a-y' && ps[1].id === 'ring-x', 'sorted + id from filename');
+    assert(Array.isArray(ps[1].cats) && ps[0].cats === undefined, 'cats array / missing ok');
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
   // injection: replaces content, idempotent, missing key untouched
   const h = { hero: { lede: 'NEW' } };
   const src = '<p><!--cms:hero.lede-->OLD<!--/cms:hero.lede--></p><i><!--cms:gone-->KEEP<!--/cms:gone--></i>';
   const once = injectHome(src, h);
-  console.assert(once.includes('>NEW<') && once.includes('>KEEP<'), 'inject + missing-key untouched');
-  console.assert(injectHome(once, h) === once, 'idempotent');
+  assert(once.includes('>NEW<') && once.includes('>KEEP<'), 'inject + missing-key untouched');
+  assert(injectHome(once, h) === once, 'idempotent');
   console.log('self-test OK');
 }
 
