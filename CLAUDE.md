@@ -4,7 +4,7 @@
 > נכתב כהעברה (handoff) בין מחשב נייח ללפטופ. השפה בתקשורת עם המשתמש: **עברית**.
 
 ## מה זה
-אתר **סטטי** (HTML/CSS/JS, ללא build) בעברית **RTL** של **Amlani** — חנות תכשיטים
+אתר **סטטי** (HTML/CSS/JS) בעברית **RTL** של **Amlani** — חנות תכשיטים. יש שלב build זעיר (`node build.js`) שרץ ב-Netlify: מאחד את קבצי המוצרים ל-`products.json` ומזריק את טקסטי דף הבית ל-`index.html`. בזמן ריצה אין framework/bundler.
 בעבודת יד. היוצרת: **חגית עמלני**, צורפת וגמולוגית מוסמכת לאבני חן וליהלומים
 (בוגרת IGL College), סדנה ב**קיבוץ שמיר, גליל עליון**. אינסטגרם: `amlani_jewelry`.
 המשתמש (Horesh) עוזר לחגית לבנות את האתר.
@@ -45,8 +45,9 @@ python -m http.server 8777
 ## פריסה
 - אתר חי: **https://amlanijewelry.netlify.app** (Netlify).
 - הקוד ב-GitHub: **https://github.com/HoreshLA/amlani-jewelry** (ענף `main`).
-- מחברים את הריפו ל-Netlify עם **Publish directory = `site`** → כל `git push` מפרסם אוטומטית.
-- לקבצי CSS/JS אין גרסאות (`?v=`); אם מעדכנים ומבקרים חוזרים רואים ישן — לשקול הוספת גרסה.
+- הריפו מחובר ל-Netlify (Continuous Deployment): **Build command = `node build.js`**, **Publish directory = `site`** (מוגדר ב-`netlify.toml`) → כל `git push` ל-`main` מפרסם אוטומטית.
+- עריכת תוכן ללא קוד: **ממשק ניהול ב-`/admin`** (Sveltia CMS, התחברות עם GitHub) — מוצרים, טקסטי דף הבית ומספר וואטסאפ.
+- לקבצי `styles.css`/`common.js` יש גרסה (`?v=N`); בכל שינוי קוד בהם — להעלות את המספר בכל העמודים כדי לעקוף cache.
 
 ## נותר לעשות / רעיונות עתידיים
 - [ ] להשלים אימייל בהצהרת הנגישות (`accessibility.html`, מחרוזת "להשלים") וב-`privacy.html`.
