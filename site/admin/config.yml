@@ -1,0 +1,57 @@
+backend:
+  name: github
+  repo: HoreshLA/amlani-jewelry
+  branch: main
+  # Netlify OAuth is Sveltia's default when base_url is unset (docs: sveltiacms.app/en/docs/backends/github).
+  # Do NOT set base_url to api.netlify.com. If admin is served from a non-Netlify domain, add site_domain (Task 7).
+media_folder: "site/assets/products"
+public_folder: "assets/products"
+collections:
+  - name: products
+    label: "מוצרים"
+    label_singular: "מוצר"
+    folder: "site/content/products"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    fields:
+      - { name: name, label: "שם", widget: string }
+      - { name: meta, label: "שורת חומרים", widget: string }
+      - { name: cats, label: "קטגוריות", widget: select, multiple: true,
+          options: [ { label: "טבעות", value: rings }, { label: "שרשראות ותליונים", value: necklaces }, { label: "צמידים", value: bracelets }, { label: "אבני חן", value: stones } ] }
+      - { name: price, label: "מחיר (לא מוצג באתר כרגע)", widget: string, required: false }
+      - { name: cover, label: "תמונת שער", widget: image }
+      - name: gallery
+        label: "גלריה"
+        widget: list
+        fields:
+          - { name: type, label: "סוג", widget: select, options: [ image, video ] }
+          - { name: src, label: "קובץ", widget: file }
+          - { name: alt, label: "תיאור חלופי", widget: string, required: false }
+      - { name: short, label: "תיאור קצר", widget: text }
+      - { name: long, label: "תיאור מלא (פסקאות)", widget: list, field: { name: p, label: "פסקה", widget: text } }
+      - name: details
+        label: "מפרט"
+        widget: list
+        fields:
+          - { name: label, label: "שדה", widget: string }
+          - { name: value, label: "ערך", widget: string }
+      - { name: wa, label: "הודעת וואטסאפ", widget: text }
+  - name: home
+    label: "דף הבית"
+    files:
+      - name: home
+        label: "טקסטים"
+        file: "site/content/home.json"
+        fields:
+          - { name: hero, label: "כותרת ראשית", widget: object, fields: [ { name: eyebrow, label: "מעל הכותרת", widget: string }, { name: title, label: "כותרת", widget: string }, { name: lede, label: "תקציר", widget: text } ] }
+          - { name: story, label: "הסיפור שלי", widget: object, fields: [ { name: eyebrow, label: "מעל", widget: string }, { name: heading, label: "כותרת", widget: string }, { name: p1, label: "פסקה 1", widget: text }, { name: p2, label: "פסקה 2", widget: text }, { name: p3, label: "פסקה 3", widget: text } ] }
+          - { name: custom, label: "הזמנה אישית", widget: object, fields: [ { name: heading, label: "כותרת", widget: string }, { name: lede, label: "טקסט", widget: text } ] }
+  - name: site
+    label: "הגדרות"
+    files:
+      - name: site
+        label: "כללי"
+        file: "site/content/site.json"
+        fields:
+          - { name: whatsapp, label: "מספר וואטסאפ (פורמט בינלאומי)", widget: string }
