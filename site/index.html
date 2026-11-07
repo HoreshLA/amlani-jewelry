@@ -1,192 +1,204 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amlani · תכשיטים בעבודת יד</title>
-  <meta name="description" content="Amlani — תכשיטי כסף וזהב בעבודת יד עם אבני חן טבעיות. מעוצבים ונוצרים ביד אחת אחת, מחומרים אמיתיים בלבד. קיבוץ שמיר, גליל עליון." />
-  <meta property="og:title" content="Amlani · תכשיטים בעבודת יד" />
-  <meta property="og:description" content="תכשיטי כסף וזהב בעבודת יד עם אבני חן טבעיות. חומרים אמיתיים, יצירה אחת אחת." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Assistant:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=1" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amlani · תכשיטים בעבודת יד</title>
+<meta name="description" content="תכשיטי כסף וזהב בעבודת יד עם אבני חן טבעיות. כל פריט נוצר פעם אחת, בקיבוץ שמיר שבגליל העליון." />
+<meta name="author" content="Amlani" />
+<meta name="theme-color" content="#5B3034" />
+<meta property="og:title" content="Amlani · תכשיטים בעבודת יד" />
+<meta property="og:description" content="תכשיטי כסף וזהב בעבודת יד עם אבני חן טבעיות. כל פריט נוצר פעם אחת, בקיבוץ שמיר שבגליל העליון." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="he_IL" />
+<meta property="og:image" content="/assets/img/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Frank+Ruhl+Libre:wght@300;400;500&display=swap" />
+<link rel="stylesheet" href="/assets/amlani.css?v=1" />
+<link rel="icon" href="/assets/img/favicon.png" />
 </head>
-<body>
+<body class="am-body">
+<a class="am-skip" href="#main">דילוג לתוכן</a>
 
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="header">
-    <div class="header-inner">
-      <a href="index.html" class="brand" aria-label="Amlani — דף הבית">
-        <span class="brand-text">
-          <span class="brand-mark">Amlani</span>
-          <span class="brand-sub">HANDMADE JEWELRY</span>
-        </span>
-      </a>
+<header class="am-header">
+  <div class="am-wrap am-header__row">
+    <a class="am-brand" href="/" aria-label="Amlani, לעמוד הבית">
+      <img src="/assets/img/rose-gold.png" alt="" width="22" height="46" />
+      <span><span class="am-brand__word">AMLANI</span><span class="am-brand__sub">ONE PIECE JEWELRY</span></span>
+    </a>
+    <nav class="am-nav" aria-label="ניווט ראשי">
+      <a href="#collection">הקולקציה</a>
+      <a href="#custom">הזמנה אישית</a>
+      <a href="#materials">החומרים</a>
+      <a href="#story">הסיפור שלי</a>
+      <a href="sizes.html">טבלת מידות</a>
+      <a href="#contact">יצירת קשר</a>
+    </nav>
+    <a class="am-header__wa" data-wa="שלום חגית, הגעתי מהאתר ואשמח לשמוע עוד על התכשיטים" href="#"><span style="width:16px;height:16px;display:inline-flex"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"></path></svg></span>050-2023525</a>
+    <button type="button" class="am-burger" aria-expanded="false" aria-controls="am-drawer" aria-label="פתיחת תפריט"><span></span><span></span></button>
+  </div>
+</header>
+<div id="am-drawer" class="am-drawer" aria-hidden="true">
+  <a href="#collection">הקולקציה</a>
+  <a href="#custom">הזמנה אישית</a>
+  <a href="#materials">החומרים</a>
+  <a href="#story">הסיפור שלי</a>
+  <a href="sizes.html">טבלת מידות</a>
+  <a href="#contact">יצירת קשר</a>
+  <a class="am-drawer__wa" data-wa="שלום חגית, הגעתי מהאתר ואשמח לשמוע עוד על התכשיטים" href="#">וואטסאפ · 050-2023525</a>
+</div>
 
-      <nav class="nav" id="nav">
-        <a href="collection.html">הקולקציה</a>
-        <a href="#custom">הזמנה אישית</a>
-        <a href="#materials">החומרים</a>
-        <a href="#story">הסיפור שלי</a>
-        <a href="sizes.html">טבלת מידות</a>
-        <a href="#contact">יצירת קשר</a>
-      </nav>
-
-      <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="top">
-    <div class="hero-text reveal">
-      <p class="eyebrow"><!--cms:hero.eyebrow-->כסף · זהב · אבני חן טבעיות<!--/cms:hero.eyebrow--></p>
-      <h1><!--cms:hero.title-->תכשיטים<br />בעבודת יד<!--/cms:hero.title--></h1>
-      <p class="lede"><!--cms:hero.lede-->כל תכשיט נוצר בעבודת יד, מכסף, זהב ואבני חן טבעיות. כל פריט הוא יחיד ומביא איתו אופי משלו.<!--/cms:hero.lede--></p>
-      <div class="hero-cta">
-        <a href="collection.html" class="btn btn-solid">לקולקציה</a>
-        <a href="#" class="btn btn-ghost" data-wa="שלום, אשמח לשמוע עוד על התכשיטים ✨">הזמנה בוואטסאפ</a>
+<main id="main">
+  <section class="am-hero" aria-labelledby="hero-title">
+    <img class="am-hero__rose" src="/assets/img/rose-gold.png" alt="" />
+    <div class="am-wrap am-hero__grid">
+      <div>
+        <div class="am-hero__word" aria-hidden="true">AMLANI</div>
+        <span class="am-hero__tag">one piece jewelry</span>
+        <h1 id="hero-title"><!--cms:hero.title-->תכשיטים<br />בעבודת יד<!--/cms:hero.title--></h1>
+        <p class="am-hero__lead"><!--cms:hero.lede-->כל תכשיט נוצר בעבודת יד, מכסף, זהב ואבני חן טבעיות. כל פריט הוא יחיד ומביא איתו אופי משלו.<!--/cms:hero.lede--></p>
+        <div class="am-hero__ctas">
+          <a class="am-cta-capsule" href="#collection">לקולקציה</a>
+          <a class="am-cta-line" data-wa="שלום חגית, הגעתי מהאתר ואשמח לשמוע עוד על התכשיטים" href="#">לכתוב לחגית בוואטסאפ <i aria-hidden="true">←</i></a>
+        </div>
+        <div class="am-hero__chips" aria-label="מה מייחד את התכשיטים">
+          <span>כסף 925</span><span>זהב 14k · 18k</span><span>אבני חן טבעיות</span><span>הזמנה אישית</span>
+        </div>
+      </div>
+      <div class="am-hero__media">
+        <span class="am-hero__ring" aria-hidden="true"></span>
+        <div class="am-oval"><img src="/assets/img/collar-sea.webp" alt="צווארון כסף עם אבן כהה, ענוד מול הים" /></div>
+        <div class="am-hero__float"><video src="/assets/vid/river.mp4" poster="/assets/vid/river.jpg" muted loop playsinline preload="metadata" aria-label="טבעת אבן ירח ואקוומרין על סלע ליד מים זורמים"></video></div>
+        <div class="am-hero__badge"><span>since<b>2025</b></span></div>
       </div>
     </div>
-    <div class="hero-media reveal">
-      <img src="assets/products/ring-moonstone-aqua.jpg" alt="טבעת כסף עם אבן ירח ואקוומרין גולמי, על סלע ליד מים" />
-      <span class="hero-badge">כסף 925 · אבן ירח</span>
+  </section>
+
+  <div class="am-ribbon" aria-hidden="true">
+    <div class="am-ribbon__track">
+      <span>אבן ירח</span><span>לברדוריט</span><span>טורמלין ירוק</span><span>אקוומרין</span><span>צ'לסדוני</span><span>סיטרין</span><span>גארנט</span><span>טורקיז</span><span>רוז קוורץ</span><span>כסף 925</span><span>זהב 18k</span>
+      <span>אבן ירח</span><span>לברדוריט</span><span>טורמלין ירוק</span><span>אקוומרין</span><span>צ'לסדוני</span><span>סיטרין</span><span>גארנט</span><span>טורקיז</span><span>רוז קוורץ</span><span>כסף 925</span><span>זהב 18k</span>
+    </div>
+  </div>
+
+  <section class="am-collection" id="collection" aria-labelledby="col-title">
+    <div class="am-wrap">
+      <div class="am-collection__head">
+        <div>
+          <span class="am-kicker">the collection</span>
+          <h2 id="col-title" class="am-section-title">הקולקציה</h2>
+          <p>כל פריט כאן נוצר ביד ובכמות קטנה. לוחצים על תכשיט לפרטים ולהזמנה ישירה בוואטסאפ.</p>
+        </div>
+        <div class="am-filters" id="am-filters" role="group" aria-label="סינון הקולקציה"></div>
+      </div>
+      <div class="am-grid" id="am-grid" aria-live="polite"></div>
     </div>
   </section>
 
-  <!-- ===== Values strip ===== -->
-  <section class="values" aria-label="הערכים שלנו">
-    <div class="value reveal">
-      <span class="value-icon">✦</span>
-      <h3>כסף וזהב</h3>
-      <p>עבודה בכסף סטרלינג 925 ובזהב טהור.</p>
-    </div>
-    <div class="value reveal">
-      <span class="value-icon">❦</span>
-      <h3>אבני חן טבעיות</h3>
-      <p>כל אבן נבחרת בעין גמולוגית מוסמכת.</p>
-    </div>
-    <div class="value reveal">
-      <span class="value-icon">✷</span>
-      <h3>עבודת יד</h3>
-      <p>כל תכשיט מיוצר ביד, ולכן אין שני פריטים זהים.</p>
-    </div>
-    <div class="value reveal">
-      <span class="value-icon">♡</span>
-      <h3>הזמנה אישית</h3>
-      <p>ניצור ביחד תכשיט שיתאים בדיוק לך.</p>
+  <section class="am-motion" aria-labelledby="motion-title">
+    <div class="am-wrap">
+      <div class="am-motion__head">
+        <div><span class="am-kicker">in motion</span><h2 id="motion-title" class="am-section-title">הרגע שבו זה נוצר</h2></div>
+        <p>מתכת, אש, פטיש ואבן. הצצה קצרה לשולחן העבודה, ולתכשיטים כשהם יוצאים לאור של העולם.</p>
+      </div>
+      <div class="am-motion__row">
+        <figure class="am-motion__item" style="margin:0"><div class="am-motion__clip"><video src="/assets/vid/hammer.mp4" poster="/assets/vid/hammer.jpg" muted loop playsinline preload="metadata" aria-label="ריקוע ביד"></video></div><figcaption>ריקוע ביד</figcaption></figure>
+        <figure class="am-motion__item" style="margin:0"><div class="am-motion__clip"><video src="/assets/vid/setting.mp4" poster="/assets/vid/setting.jpg" muted loop playsinline preload="metadata" aria-label="שיבוץ האבן"></video></div><figcaption>שיבוץ האבן</figcaption></figure>
+        <figure class="am-motion__item" style="margin:0"><div class="am-motion__clip"><video src="/assets/vid/river.mp4" poster="/assets/vid/river.jpg" muted loop playsinline preload="metadata" aria-label="אבן ירח, ליד המים"></video></div><figcaption>אבן ירח, ליד המים</figcaption></figure>
+        <figure class="am-motion__item" style="margin:0"><div class="am-motion__clip"><video src="/assets/vid/cactus.mp4" poster="/assets/vid/cactus.jpg" muted loop playsinline preload="metadata" aria-label="טבעת בשטח"></video></div><figcaption>טבעת בשטח</figcaption></figure>
+      </div>
     </div>
   </section>
 
-  <!-- ===== Craft in motion (videos) ===== -->
-  <section class="reels-section" id="craft">
-    <div class="section-head reveal">
-      <p class="eyebrow">בתנועה</p>
-      <h2>הרגע שנוצר ביד</h2>
-      <p class="section-lede">מתכת, אבן ואור — הצצה קטנה אל התהליך ואל התכשיטים בחיים עצמם.</p>
-    </div>
-    <div class="reels reveal">
-      <figure class="reel">
-        <video src="assets/videos/v-b.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  <section class="am-story" id="story" aria-labelledby="story-title">
+    <div class="am-wrap am-story__grid">
+      <figure class="am-story__media" style="margin:0">
+        <div class="am-story__photo"><img src="/assets/img/workbench.webp" alt="טבעת עם אבן על שולחן העבודה, בין פטישים וכלי צורפות" loading="lazy" /></div>
+        <div class="am-story__clip"><video src="/assets/vid/studio.mp4" poster="/assets/vid/studio.jpg" muted loop playsinline preload="metadata" aria-label="עבודה ליד שולחן הצורפות בסטודיו"></video></div>
+        <figcaption>הסטודיו, קיבוץ שמיר</figcaption>
       </figure>
-      <figure class="reel">
-        <video src="assets/videos/v-c.mp4" autoplay muted loop playsinline preload="metadata"></video>
-      </figure>
-      <figure class="reel">
-        <video src="assets/videos/v-f.mp4" autoplay muted loop playsinline preload="metadata"></video>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===== Story ===== -->
-  <section class="story" id="story">
-    <div class="story-media reveal">
-      <img src="assets/mood/workshop-moonstone.jpg" alt="טבעת אבן ירח על שולחן העבודה של הצורפת, בין כלי עבודה" />
-    </div>
-    <div class="story-text reveal">
-      <p class="eyebrow"><!--cms:story.eyebrow-->הסיפור שלי<!--/cms:story.eyebrow--></p>
-      <h2><!--cms:story.heading-->נעים להכיר, אני חגית<!--/cms:story.heading--></h2>
-      <p><!--cms:story.p1-->אני חגית עמלני, צורפת וגמולוגית מוסמכת לאבני חן וליהלומים מלוטשים, בוגרת IGL College.<!--/cms:story.p1--></p>
-      <p><!--cms:story.p2-->את AMLANI הקמתי מתוך אהבה לעבודה בידיים, למתכות ולאבנים. אני אוהבת לחבר בין צורות עתיקות לעיצוב עכשווי, ובין קווים נקיים למרקמים שמרגישים בהם את היד שיצרה אותם.<!--/cms:story.p2--></p>
-      <p><!--cms:story.p3-->אני יוצרת בקיבוץ שמיר שבגליל העליון. בכל תכשיט חשוב לי לשמור על החומר, על הפרטים הקטנים ועל המקום של האבן בתוך העיצוב — כדי ליצור משהו שלא רק נראה יפה, אלא גם מרגיש נכון על הגוף.<!--/cms:story.p3--></p>
-    </div>
-  </section>
-
-  <!-- ===== Materials band ===== -->
-  <section class="materials" id="materials">
-    <div class="materials-head reveal">
-      <p class="eyebrow">החומרים</p>
-      <h2>מה נכנס לכל תכשיט</h2>
-    </div>
-    <div class="materials-grid">
-      <div class="material reveal">
-        <h3>כסף סטרלינג 925</h3>
-        <p>מתכת מלאה לאורך זמן — לא ציפוי שמתקלף, אלא כסף אמיתי.</p>
-      </div>
-      <div class="material reveal">
-        <h3>זהב 18k · 14k</h3>
-        <p>עבודות זהב טהור, חמות ומעוצבות ביד לנוכחות ייחודית.</p>
-      </div>
-      <div class="material reveal">
-        <h3>אבני חן טבעיות</h3>
-        <p>אני עובדת עם אבני חן טבעיות, מלוטשות וגולמיות. כל אבן נבחרת בקפידה — לפי צבע, מבנה, איכות והאופי שהיא מביאה לתכשיט.</p>
-      </div>
-      <div class="material reveal">
-        <h3>ליווי גמולוגי</h3>
-        <p>ההכשרה שלי כגמולוגית מוסמכת לאבני חן וליהלומים מלוטשים מאפשרת לי לבחור אבנים מתוך ידע מקצועי — לא רק לפי המראה.</p>
+      <div class="am-story__text">
+        <span class="am-kicker"><!--cms:story.eyebrow-->הסיפור שלי<!--/cms:story.eyebrow--></span>
+        <h2 id="story-title"><!--cms:story.heading-->מאחורי היצירה<!--/cms:story.heading--></h2>
+        <p><!--cms:story.p1-->אני חגית עמלני, צורפת וגמולוגית מוסמכת לאבני חן וליהלומים מלוטשים, בוגרת IGL College.<!--/cms:story.p1--></p>
+        <p><!--cms:story.p2-->את AMLANI הקמתי מתוך אהבה לעבודה בידיים, למתכות ולאבנים. אני אוהבת לחבר בין צורות עתיקות לעיצוב עכשווי, ובין קווים נקיים למרקמים שמרגישים בהם את היד שיצרה אותם.<!--/cms:story.p2--></p>
+        <blockquote class="am-quote"><!--cms:story.p3-->אני יוצרת בקיבוץ שמיר שבגליל העליון. בכל תכשיט חשוב לי לשמור על החומר, על הפרטים הקטנים ועל המקום של האבן בתוך העיצוב כדי ליצור משהו שלא רק נראה יפה, אלא גם מרגיש נכון על הגוף.<!--/cms:story.p3--></blockquote>
+        <div class="am-sign"><img src="/assets/img/rose-gold.png" alt="" /><span>Hagit Amlani</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Custom order CTA ===== -->
-  <section class="custom" id="custom">
-    <div class="custom-inner reveal">
-      <p class="eyebrow">הזמנה אישית</p>
-      <h2><!--cms:custom.heading-->יש לך תכשיט בראש?<!--/cms:custom.heading--></h2>
-      <p class="custom-lede"><!--cms:custom.lede-->אפשר להגיע עם רעיון ברור, עם אבן שכבר יש לך, עם תכשיט ישן שרוצים להפוך למשהו חדש — או רק עם תחושה כללית. נחשוב יחד על החומר, האבן, הצורה והמידה, ואצור תכשיט שמתאים בדיוק לך.<!--/cms:custom.lede--></p>
-      <a href="#" class="btn btn-solid" data-wa="שלום, אשמח להזמין תכשיט בהתאמה אישית ✨ הרעיון שלי הוא:">בואו נתחיל בוואטסאפ</a>
+  <section class="am-materials" id="materials" aria-labelledby="mat-title">
+    <div class="am-wrap">
+      <div class="am-materials__head">
+        <span class="am-kicker">materials</span>
+        <h2 id="mat-title" class="am-section-title">מה נכנס לכל תכשיט</h2>
+        <p>רק חומרים אמיתיים. בלי ציפויים ובלי קיצורי דרך.</p>
+      </div>
+      <div class="am-materials__list">
+        <article class="am-mat"><span class="am-mat__n">i</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><ellipse cx="32" cy="38" rx="20" ry="9"></ellipse><path d="M12 38v-6c0-5 9-9 20-9s20 4 20 9v6"></path><path d="M24 23c1-4 4-7 8-7s7 3 8 7" stroke-dasharray="2 3"></path></svg><h3>כסף סטרלינג 925</h3><p>מתכת מלאה שמחזיקה לאורך שנים. לא ציפוי שמתקלף, אלא כסף אמיתי.</p></article>
+        <article class="am-mat"><span class="am-mat__n">ii</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M32 8c7 11 14 19 14 28a14 14 0 0 1-28 0c0-9 7-17 14-28Z"></path><path d="M26 38a6 6 0 0 0 6 6"></path></svg><h3>זהב 14k · 18k</h3><p>עבודות זהב חמות, מעוצבות ביד לנוכחות ייחודית על העור.</p></article>
+        <article class="am-mat"><span class="am-mat__n">iii</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><ellipse cx="32" cy="32" rx="14" ry="20"></ellipse><ellipse cx="32" cy="32" rx="8" ry="13"></ellipse><path d="M32 6v6M32 52v6M14 18l4 3M50 18l-4 3M14 46l4-3M50 46l-4-3"></path></svg><h3>אבני חן טבעיות</h3><p>מלוטשות וגולמיות. כל אבן נבחרת לפי צבע, מבנה, איכות והאופי שהיא מביאה.</p></article>
+        <article class="am-mat"><span class="am-mat__n">iv</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="27" cy="27" r="15"></circle><path d="M38 38l14 14" stroke-linecap="round"></path><path d="M21 27l6-6 6 6-6 6Z"></path></svg><h3>ליווי גמולוגי</h3><p>הכשרה מוסמכת לאבני חן ויהלומים, כדי לבחור אבן מתוך ידע ולא רק לפי המראה.</p></article>
+      </div>
     </div>
   </section>
 
-  <!-- ===== Contact / Footer ===== -->
-  <footer class="contact" id="contact">
-    <div class="contact-grid">
-      <div class="contact-brand reveal">
-        <span class="brand-mark">Amlani</span>
-        <span class="brand-sub">HANDMADE JEWELRY</span>
-        <p>תכשיטי כסף וזהב בעבודת יד עם אבני חן טבעיות.</p>
+  <section class="am-custom" id="custom" aria-labelledby="custom-title">
+    <img class="am-custom__rose" src="/assets/img/rose-gold.png" alt="" />
+    <div class="am-wrap am-custom__grid">
+      <div>
+        <span class="am-kicker">made for you</span>
+        <h2 id="custom-title"><!--cms:custom.heading-->יש לך תכשיט בראש?<!--/cms:custom.heading--></h2>
+        <p class="am-custom__lead"><!--cms:custom.lede-->אפשר להגיע עם רעיון ברור, עם אבן שכבר יש לך, עם תכשיט ישן שרוצים להפוך למשהו חדש, או רק עם תחושה כללית. נחשוב יחד על החומר, האבן, הצורה והמידה, ואצור תכשיט שמתאים בדיוק לך.<!--/cms:custom.lede--></p>
+        <div class="am-custom__cta"><a class="am-cta-capsule" data-wa="שלום חגית, יש לי רעיון לתכשיט בהזמנה אישית ואשמח לדבר" href="#">בואו נתחיל בוואטסאפ</a></div>
       </div>
-      <div class="contact-col reveal">
-        <h4>ניווט</h4>
-        <a href="collection.html" class="contact-link">הקולקציה</a>
-        <a href="#custom" class="contact-link">הזמנה אישית</a>
-        <a href="#story" class="contact-link">הסיפור שלי</a>
-        <a href="sizes.html" class="contact-link">טבלת מידות</a>
+      <ol class="am-steps">
+        <li><span class="am-roman">I</span><div><h3>שיחה ורעיון</h3><p>מספרים לי מה בא לך: תמונת השראה, אירוע, אבן אהובה או סתם תחושה.</p></div></li>
+        <li><span class="am-roman">II</span><div><h3>אבן, מתכת ומידה</h3><p>בוחרים יחד אבן טבעית, כסף או זהב, ואת המידה המדויקת.</p></div></li>
+        <li><span class="am-roman">III</span><div><h3>יצירה ביד</h3><p>התכשיט נוצר בסטודיו, אחד ויחיד, ומגיע אלייך מוכן לענידה.</p></div></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="am-footer" id="contact">
+  <div class="am-wrap">
+    <div class="am-footer__grid">
+      <div class="am-footer__brand">
+        <a class="am-brand" href="/"><img src="/assets/img/rose-gold.png" alt="" width="22" height="46" /><span><span class="am-brand__word">AMLANI</span><span class="am-brand__sub">ONE PIECE JEWELRY</span></span></a>
+        <p>תכשיטי כסף וזהב בעבודת יד עם אבני חן טבעיות. מעוצבים ונוצרים אחד אחד בקיבוץ שמיר.</p>
       </div>
-      <div class="contact-col reveal">
-        <h4>יצירת קשר</h4>
-        <a href="#" data-wa="שלום, אשמח לשמוע עוד על התכשיטים ✨" class="contact-link">וואטסאפ · 050-2023525</a>
-        <a href="https://instagram.com/amlani_jewelry" target="_blank" rel="noopener" class="contact-link">אינסטגרם · amlani_jewelry@</a>
-        <p class="contact-plain">קיבוץ שמיר · גליל עליון</p>
+      <div>
+        <h3>ניווט</h3>
+        <ul>
+          <li><a href="#collection">הקולקציה</a></li>
+          <li><a href="#custom">הזמנה אישית</a></li>
+          <li><a href="#materials">החומרים</a></li>
+          <li><a href="#story">הסיפור שלי</a></li>
+          <li><a href="sizes.html">טבלת מידות</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>יצירת קשר</h3>
+        <ul>
+          <li><a data-wa="שלום חגית, הגעתי מהאתר ואשמח לשמוע עוד על התכשיטים" href="#">וואטסאפ · 050-2023525</a></li>
+          <li><a href="https://instagram.com/amlani_jewelry" target="_blank" rel="noreferrer">אינסטגרם · amlani_jewelry@</a></li>
+          <li>קיבוץ שמיר · גליל עליון</li>
+        </ul>
       </div>
     </div>
-    <div class="contact-bottom">
-      <p>© <span id="year"></span> Amlani · כל הזכויות שמורות</p>
-      <nav class="legal-links"><a href="accessibility.html">הצהרת נגישות</a><a href="privacy.html">מדיניות פרטיות</a></nav>
-      <p class="credit">נוצר באהבה · עבודת יד בכל פרט</p>
+    <div class="am-footer__bottom">
+      <span>© 2026 Amlani · כל הזכויות שמורות</span>
+      <span><a href="accessibility.html">הצהרת נגישות</a> · <a href="privacy.html">מדיניות פרטיות</a></span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="#" class="wa-float" data-wa="שלום, הגעתי מהאתר ואשמח לפרטים ✨" aria-label="פנייה בוואטסאפ">
-    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
-      <path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.3-.4c-1-1.6-1.5-3.4-1.5-5.2C4.9 9.5 9.9 5 16 5s11.1 4.5 11.1 10c0 5.4-5 9.8-11.1 9.8zm6.1-7.3c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6s-.8-1.9-1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.5 3.8 6 5.3 2.2.9 3 1 4.1.9.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/>
-    </svg>
-  </a>
+<a class="am-wa-float" data-wa="שלום חגית, הגעתי מהאתר ואשמח לשמוע עוד על התכשיטים" href="#" aria-label="כתבו לנו בוואטסאפ"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91A9.86 9.86 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"></path></svg></a>
 
-  <script src="common.js?v=2"></script>
+<script src="/amlani.js?v=1" defer></script>
 </body>
 </html>
