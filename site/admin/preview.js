@@ -67,4 +67,43 @@
   };
 
   CMS.registerPreviewTemplate("products", ProductPreview);
+
+  // 3) Home-page preview — hero / story / custom sections in site type & color.
+  var br = function (text) {
+    // render literal "<br />" in a stored string as real line breaks
+    var parts = String(text || "").split(/<br\s*\/?>/i);
+    return parts.map(function (p, i) {
+      return html`${i ? html`<br />` : ""}${p}`;
+    });
+  };
+  var HomePreview = function (props) {
+    var e = props.entry;
+    var g = function (path) {
+      return e.getIn(["data"].concat(path)) || "";
+    };
+    return html`
+      <div dir="rtl" style="max-width:720px;margin:0 auto;padding:8px 4px">
+        <section style="text-align:center;padding:1rem 0 2rem">
+          <p class="eyebrow">${g(["hero", "eyebrow"])}</p>
+          <h1 style="font-size:2.4rem;line-height:1.15;margin:.3rem 0">${br(g(["hero", "title"]))}</h1>
+          <p class="lede">${g(["hero", "lede"])}</p>
+        </section>
+        <hr style="border:none;border-top:1px solid rgba(0,0,0,.12);margin:1.5rem 0" />
+        <section style="padding:1rem 0">
+          <p class="eyebrow">${g(["story", "eyebrow"])}</p>
+          <h2 style="font-size:1.9rem;margin:.3rem 0 1rem">${g(["story", "heading"])}</h2>
+          <p>${g(["story", "p1"])}</p>
+          <p>${g(["story", "p2"])}</p>
+          <p>${g(["story", "p3"])}</p>
+        </section>
+        <hr style="border:none;border-top:1px solid rgba(0,0,0,.12);margin:1.5rem 0" />
+        <section style="padding:1rem 0">
+          <p class="eyebrow">הזמנה אישית</p>
+          <h2 style="font-size:1.9rem;margin:.3rem 0 1rem">${g(["custom", "heading"])}</h2>
+          <p class="custom-lede">${g(["custom", "lede"])}</p>
+        </section>
+      </div>
+    `;
+  };
+  CMS.registerPreviewTemplate("home", HomePreview);
 })();
