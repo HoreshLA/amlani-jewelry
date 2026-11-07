@@ -1,19 +1,20 @@
-/* Amlani CMS — styled live preview so editing looks like the real site.
+/* Amlani CMS — styled live preview so editing looks like the real (redesigned) site.
    Sveltia exposes `CMS`, `html` (HTM), `h`, `createClass` globally after load. */
 (function () {
   // 1) Load the real site stylesheet + fonts into the preview iframe,
-  //    so previews use the site's colors, type and RTL — not the admin chrome.
+  //    so previews use the new design's colors, type and RTL.
   CMS.registerPreviewStyle(
-    "@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Assistant:wght@300;400;500;600&display=swap');",
+    "@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Frank+Ruhl+Libre:wght@300;400;500&display=swap');",
     { raw: true }
   );
-  CMS.registerPreviewStyle("/styles.css");
+  CMS.registerPreviewStyle("/assets/amlani.css");
+  CMS.registerPreviewStyle("/assets/amlani-pages.css");
   CMS.registerPreviewStyle(
-    "body{direction:rtl;background:var(--cream,#fff);margin:0;padding:20px;font-family:var(--font-body,'Assistant',sans-serif)}img{max-width:100%}",
+    "body{direction:rtl;background:var(--ivory,#f6eee4);color:var(--ink,#2b0b12);margin:0;padding:22px;font-family:var(--f-body,'Assistant',sans-serif)}img{max-width:100%}.am-pd{padding:0!important}",
     { raw: true }
   );
 
-  // 2) Product preview — mirrors the real product page layout + classes.
+  // 2) Product preview — mirrors the real product page layout + am-* classes.
   var ProductPreview = function (props) {
     var entry = props.entry;
     var getAsset = props.getAsset;
@@ -32,31 +33,27 @@
     var details = val("details") || [];
 
     return html`
-      <div dir="rtl" class="product-inner">
-        <div class="pg-layout">
-          <div class="pg-gallery">
-            <div class="pg-main">
+      <div dir="rtl" class="am-body" style="background:var(--ivory)">
+        <div class="am-pd__grid">
+          <div class="am-pd__media">
+            <div class="am-pd__frame">
               ${coverUrl
                 ? html`<img src=${coverUrl} alt=${name} />`
-                : html`<div style="aspect-ratio:4/5;background:#eee;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#999">אין תמונה</div>`}
+                : html`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted)">אין תמונה</div>`}
             </div>
           </div>
-          <div class="pg-info">
-            <p class="pg-meta">${meta}</p>
+          <div class="am-pd__info">
+            <p class="am-pd__meta">${meta}</p>
             <h1>${name}</h1>
-            ${price
-              ? html`<p style="font-weight:600;font-size:1.25rem;color:var(--clay,#9E2B22);margin:.2rem 0 1rem">${price}</p>`
-              : ""}
-            <div class="pg-long">
+            ${price ? html`<p class="am-dialog__price">₪${price}</p>` : ""}
+            <div class="am-pd__long">
               ${short ? html`<p>${short}</p>` : ""}
-              ${longs.map(function (t) {
-                return html`<p>${t}</p>`;
-              })}
+              ${longs.map(function (t) { return html`<p>${t}</p>`; })}
             </div>
             ${details.length
-              ? html`<dl class="pg-specs">
+              ? html`<dl class="am-specs">
                   ${details.map(function (d) {
-                    return html`<div class="pg-spec"><dt>${d.label}</dt><dd>${d.value}</dd></div>`;
+                    return html`<dt>${d.label}</dt><dd>${d.value}</dd>`;
                   })}
                 </dl>`
               : ""}
@@ -68,39 +65,35 @@
 
   CMS.registerPreviewTemplate("products", ProductPreview);
 
-  // 3) Home-page preview — hero / story / custom sections in site type & color.
+  // 3) Home-page preview — hero / story / custom in the new wine/gold system.
   var br = function (text) {
-    // render literal "<br />" in a stored string as real line breaks
     var parts = String(text || "").split(/<br\s*\/?>/i);
-    return parts.map(function (p, i) {
-      return html`${i ? html`<br />` : ""}${p}`;
-    });
+    return parts.map(function (p, i) { return html`${i ? html`<br />` : ""}${p}`; });
   };
   var HomePreview = function (props) {
     var e = props.entry;
-    var g = function (path) {
-      return e.getIn(["data"].concat(path)) || "";
-    };
+    var g = function (path) { return e.getIn(["data"].concat(path)) || ""; };
     return html`
-      <div dir="rtl" style="max-width:720px;margin:0 auto;padding:8px 4px">
-        <section style="text-align:center;padding:1rem 0 2rem">
-          <p class="eyebrow">${g(["hero", "eyebrow"])}</p>
-          <h1 style="font-size:2.4rem;line-height:1.15;margin:.3rem 0">${br(g(["hero", "title"]))}</h1>
-          <p class="lede">${g(["hero", "lede"])}</p>
+      <div dir="rtl" class="am-body" style="background:var(--ivory);max-width:760px;margin:0 auto">
+        <section style="background:var(--wine);color:var(--ivory);border-radius:16px;padding:34px 26px;text-align:center">
+          <div class="am-latin" style="font-family:var(--f-latin);font-size:2.6rem;letter-spacing:.2em;color:var(--gold-pale)">AMLANI</div>
+          <span class="am-kicker">${g(["hero", "eyebrow"])}</span>
+          <h1 style="font-family:var(--f-display);font-weight:300;font-size:2.4rem;line-height:1.15;margin:.5rem 0;color:var(--ivory)">${br(g(["hero", "title"]))}</h1>
+          <p style="color:rgba(246,238,228,.85);max-width:30rem;margin:.6rem auto 0">${g(["hero", "lede"])}</p>
         </section>
-        <hr style="border:none;border-top:1px solid rgba(0,0,0,.12);margin:1.5rem 0" />
-        <section style="padding:1rem 0">
-          <p class="eyebrow">${g(["story", "eyebrow"])}</p>
-          <h2 style="font-size:1.9rem;margin:.3rem 0 1rem">${g(["story", "heading"])}</h2>
-          <p>${g(["story", "p1"])}</p>
-          <p>${g(["story", "p2"])}</p>
-          <p>${g(["story", "p3"])}</p>
+
+        <section style="padding:30px 6px 10px">
+          <span class="am-kicker">${g(["story", "eyebrow"])}</span>
+          <h2 class="am-section-title" style="color:var(--wine);font-size:2rem;margin:.3rem 0 1rem">${g(["story", "heading"])}</h2>
+          <p style="color:#4a2a31;margin:.6rem 0">${g(["story", "p1"])}</p>
+          <p style="color:#4a2a31;margin:.6rem 0">${g(["story", "p2"])}</p>
+          <blockquote class="am-quote" style="color:var(--wine)">${g(["story", "p3"])}</blockquote>
         </section>
-        <hr style="border:none;border-top:1px solid rgba(0,0,0,.12);margin:1.5rem 0" />
-        <section style="padding:1rem 0">
-          <p class="eyebrow">הזמנה אישית</p>
-          <h2 style="font-size:1.9rem;margin:.3rem 0 1rem">${g(["custom", "heading"])}</h2>
-          <p class="custom-lede">${g(["custom", "lede"])}</p>
+
+        <section style="background:var(--wine);color:var(--ivory);border-radius:16px;padding:28px 26px;margin-top:20px">
+          <span class="am-kicker" style="color:var(--gold)">made for you</span>
+          <h2 style="font-family:var(--f-display);font-weight:300;font-size:1.9rem;margin:.3rem 0 .8rem;color:var(--ivory)">${g(["custom", "heading"])}</h2>
+          <p style="color:rgba(246,238,228,.85)">${g(["custom", "lede"])}</p>
         </section>
       </div>
     `;
