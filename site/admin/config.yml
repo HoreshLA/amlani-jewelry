@@ -18,7 +18,8 @@ collections:
     identifier_field: name
     fields:
       - { name: name, label: "שם", widget: string }
-      - { name: meta, label: "שורת חומרים", widget: string }
+      - { name: materials, label: "חומרים", widget: relation, collection: site, file: materials, value_field: "items.*.name", search_fields: ["items.*.name"], display_fields: ["items.*.name"], multiple: true, required: false, dropdown_threshold: 100, hint: "את הרשימה עצמה אפשר לערוך בהגדרות ← רשימת חומרים" }
+      - { name: meta, label: "תוספת לשורת החומרים (לא חובה)", widget: string, required: false, hint: "מופיע אחרי החומרים שסימנת. למשל: אבן אבלון · יציקה ידנית" }
       - { name: cats, label: "קטגוריות", widget: select, multiple: true,
           options: [ { label: "טבעות", value: rings }, { label: "שרשראות ותליונים", value: necklaces }, { label: "צמידים", value: bracelets }, { label: "אבני חן", value: stones } ] }
       - { name: price, label: "מחיר (לא מוצג באתר כרגע)", widget: string, required: false }
@@ -58,3 +59,4 @@ collections:
         file: "site/content/site.json"
         fields:
           - { name: whatsapp, label: "מספר וואטסאפ (פורמט בינלאומי)", widget: string }
+      - { name: materials, label: "רשימת חומרים", file: "site/content/materials.json", fields: [ { name: items, label: "חומרים", label_singular: "חומר", widget: list, fields: [ { name: name, label: "שם החומר", widget: string } ] } ] }
