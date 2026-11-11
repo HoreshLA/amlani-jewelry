@@ -22,18 +22,17 @@ collections:
       - { name: meta, label: "תוספת לשורת החומרים (לא חובה)", widget: string, required: false, hint: "מופיע אחרי החומרים שסימנת. למשל: אבן אבלון · יציקה ידנית" }
       - { name: cats, label: "קטגוריות", widget: select, multiple: true,
           options: [ { label: "טבעות", value: rings }, { label: "שרשראות ותליונים", value: necklaces }, { label: "צמידים", value: bracelets }, { label: "עגילים", value: earrings }, { label: "אבני חן", value: stones } ] }
-      - { name: price, label: "מחיר (לא מוצג באתר כרגע)", widget: string, required: false }
+      - { name: price, label: "מחיר בשקלים (אם ריק יופיע 'לפרטים ומחיר')", widget: string, required: false }
       - { name: cover, label: "תמונת שער", widget: image }
       - { name: cover_frame, label: "מיקום וגודל התמונה במסגרת", widget: imageframe, required: false }
       - name: gallery
         label: "גלריה"
         widget: list
         fields:
-          - { name: type, label: "סוג", widget: select, options: [ image, video ] }
           - { name: src, label: "קובץ", widget: file }
           - { name: alt, label: "תיאור חלופי", widget: string, required: false }
       - { name: short, label: "תיאור קצר", widget: text }
-      - { name: long, label: "תיאור מלא (פסקאות)", widget: list, field: { name: p, label: "פסקה", widget: text } }
+      - { name: long, label: "תיאור מלא", widget: text, hint: "כותבים רגיל. שורה ריקה מתחילה פסקה חדשה." }
       - name: details
         label: "מפרט"
         widget: list
