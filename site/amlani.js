@@ -50,6 +50,7 @@
     { key: "rings", label: "טבעות", match: function (p) { return has(p, "rings"); } },
     { key: "necklaces", label: "שרשראות ותליונים", match: function (p) { return has(p, "necklaces"); } },
     { key: "bracelets", label: "צמידים", match: function (p) { return has(p, "bracelets"); } },
+     { key: "earrings", label: "עגילים", match: function (p) { return has(p, "earrings"); } },
     { key: "stones", label: "עם אבן חן", match: function (p) { return has(p, "stones"); } }
   ];
   function has(p, c) { return Array.isArray(p.cats) && p.cats.indexOf(c) !== -1; }
