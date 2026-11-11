@@ -23,6 +23,7 @@ collections:
           options: [ { label: "טבעות", value: rings }, { label: "שרשראות ותליונים", value: necklaces }, { label: "צמידים", value: bracelets }, { label: "אבני חן", value: stones } ] }
       - { name: price, label: "מחיר (לא מוצג באתר כרגע)", widget: string, required: false }
       - { name: cover, label: "תמונת שער", widget: image }
+      - { name: cover_frame, label: "מיקום וגודל התמונה במסגרת", widget: imageframe, required: false }
       - name: gallery
         label: "גלריה"
         widget: list
