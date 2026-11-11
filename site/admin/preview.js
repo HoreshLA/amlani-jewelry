@@ -29,7 +29,7 @@
     var cover = entry.getIn(["data", "cover"]);
     var coverAsset = cover ? getAsset(cover) : null;
     var coverUrl = coverAsset ? coverAsset.url : cover ? "/" + cover : "";
-    var longs = val("long") || [];
+    var longs = [].concat(val("long") || []).join("\n\n").split(/\n\s*\n/).filter(function (t) { return t.trim(); });
     var details = val("details") || [];
 
     return html`
