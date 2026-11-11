@@ -22,6 +22,7 @@ function injectHome(html, home) {
 
 function main() {
   const products = buildProducts('site/content/products');
+  products.forEach(p => { if (Array.isArray(p.materials) && p.materials.length) p.meta = [...p.materials, p.meta].filter(Boolean).join(' · '); });
   fs.writeFileSync('site/products.json', JSON.stringify(products) + '\n');
   const home = JSON.parse(fs.readFileSync('site/content/home.json', 'utf8'));
   const html = fs.readFileSync('site/index.html', 'utf8');
