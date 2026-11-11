@@ -1,0 +1,31 @@
+{
+  "name": "עגילי חישוק לאפיז",
+  "materials": [
+    "כסף 925"
+  ],
+  "meta": "אבן לאפיז לאזולי",
+  "cats": [
+    "stones"
+  ],
+  "price": "",
+  "cover": "/assets/products/DSCN1429.JPG",
+  "cover_frame": "-16.4 0.5 1.84",
+  "gallery": [
+    {
+      "type": "image",
+      "src": "/assets/products/DSCN1429.JPG",
+      "alt": ""
+    }
+  ],
+  "short": "עגילי חישוק כסף 925 בשילוב חרוזי כסף 925 \n וחרוז אבן לאפיז לאזולי",
+  "long": [
+    "1"
+  ],
+  "details": [
+    {
+      "label": "1",
+      "value": "1"
+    }
+  ],
+  "wa": "1"
+}
