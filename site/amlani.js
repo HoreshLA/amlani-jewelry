@@ -168,3 +168,5 @@
     apply(); sync();
   })();
 })();
+
+(function(){function fr(p){var f=String(p&&p.cover_frame||"").trim().split(/\s+/).map(Number);return f.length===3&&!f.some(isNaN)?f:null;}var map=null;function apply(){if(!map)return;document.querySelectorAll(".am-card__frame img, .am-pd__frame img").forEach(function(img){var f=map[img.getAttribute("src")];if(!f)return;img.style.objectFit="contain";img.style.translate=f[0]+"% "+f[1]+"%";img.style.scale=String(f[2]);});}fetch("/products.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():[];}).then(function(ps){map={};(ps||[]).forEach(function(p){var f=fr(p);if(f&&p.cover)map[p.cover]=f;});apply();new MutationObserver(apply).observe(document.body,{childList:true,subtree:true});}).catch(function(){});})();
