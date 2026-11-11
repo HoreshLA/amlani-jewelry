@@ -77,7 +77,8 @@
     var CATS = [
       { key: "rings", label: "טבעות", cover: "assets/products/ring-moonstone-aqua.jpg" },
       { key: "necklaces", label: "שרשראות ותליונים", cover: "assets/products/necklace-chalcedony.jpg" },
-      { key: "bracelets", label: "צמידים", cover: "assets/products/ring-hammered-set.jpg", soon: true }
+      { key: "bracelets", label: "צמידים", cover: "assets/products/ring-hammered-set.jpg", soon: true },
+      { key: "earrings", label: "עגילים", cover: (products.filter(function (p) { return Array.isArray(p.cats) && p.cats.indexOf("earrings") !== -1; })[0] || {}).cover || "assets/mood/gold-sun-worn.jpg", soon: !count("earrings") }
     ];
     var catKey = new URLSearchParams(location.search).get("cat");
     var cat = CATS.filter(function (c) { return c.key === catKey; })[0];
