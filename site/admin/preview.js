@@ -23,7 +23,7 @@
       return v && v.toJS ? v.toJS() : v;
     };
     var name = val("name") || "שם המוצר";
-    var meta = val("meta") || "";
+    var meta = [].concat(val("materials") || [], val("meta") || []).filter(Boolean).join(" · ");
     var short = val("short") || "";
     var price = val("price") || "";
     var cover = entry.getIn(["data", "cover"]);
