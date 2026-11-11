@@ -65,7 +65,7 @@
   function start(){ fetch("products.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : []; }).then(render).catch(function () { render([]); }); }
   function mediaHTML(m, isMain, cover, name) {
     if (!m) return "";
-    if (m.type === "video") return '<video src="' + esc(m.src) + '" ' + (isMain ? 'controls playsinline muted loop autoplay' : 'muted playsinline preload="metadata"') + '></video>';
+    if (m.type === "video" || /\.(mp4|mov|webm|m4v)$/i.test(m.src || "")) return '<video src="' + esc(m.src) + '" ' + (isMain ? 'controls playsinline muted loop autoplay' : 'muted playsinline preload="metadata"') + '></video>';
     return '<img src="' + esc(m.src) + '" alt="' + esc(m.alt || name) + '">';
   }
   function render(products) {
@@ -81,10 +81,10 @@
     var gallery = p.gallery && p.gallery.length ? p.gallery : [{ type: "image", src: p.cover, alt: p.name }];
     var thumbs = gallery.length > 1 ? '<div class="am-pd__thumbs">' + gallery.map(function (m, i) {
         return '<button type="button" class="am-pd__thumb' + (i === 0 ? ' is-active' : '') + '" data-i="' + i + '" aria-label="תצוגה ' + (i + 1) + '">' +
-          (m.type === "video" ? '<img src="' + esc(p.cover) + '" alt=""><span class="vid">▶</span>' : '<img src="' + esc(m.src) + '" alt="">') + '</button>';
+          (m.type === "video" || /\.(mp4|mov|webm|m4v)$/i.test(m.src || "") ? '<img src="' + esc(p.cover) + '" alt=""><span class="vid">▶</span>' : '<img src="' + esc(m.src) + '" alt="">') + '</button>';
       }).join("") + '</div>' : "";
     var details = (p.details || []).map(function (d) { return '<dt>' + esc(d.label) + '</dt><dd>' + esc(d.value) + '</dd>'; }).join("");
-    var longText = (p.long || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
+    var longText = (p.short ? "<p>" + esc(p.short) + "</p>" : "") + (Array.isArray(p.long) ? p.long : String(p.long || "").split(/\n\s*\n/)).filter(function (t) { return String(t).trim(); }).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
     var price = p.price ? '<p class="am-dialog__price">₪' + esc(p.price) + '</p>' : "";
 
     root.innerHTML =
